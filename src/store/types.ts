@@ -3,30 +3,6 @@ export interface Pokemon {
     url: string;
 }
 
-interface Ability {
-    ability: {
-        name: string;
-    };
-}
-
-interface Stat {
-    base_stat: number;
-    stat: {
-        name: string;
-    };
-}
-
-interface Type {
-    type: {
-        name: string;
-    };
-}
-
-interface Form {
-    name: string;
-    url: string;
-}
-
 export interface PokemonDetails {
     name: string;
     sprites: {
@@ -49,6 +25,11 @@ export interface PokemonDetails {
             name: string;
         };
         base_stat: number;
+    }[];
+    types: {
+        type: {
+            name: string;
+        };
     }[];
     forms?: {
         name: string;
