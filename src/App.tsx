@@ -16,6 +16,7 @@ function App() {
             <Header />
             <main>
                 <Routes>
+                    <Route path="/" element={<PokemonList />} />
                     <Route path="/pokemons" element={<PokemonList />} />
                     <Route path="/pokemon/:id" element={<PokemonDetail />} />
                     <Route path="/my-collection" element={<MyCollection />} />

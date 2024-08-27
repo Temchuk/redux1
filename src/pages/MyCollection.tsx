@@ -16,7 +16,7 @@ const MyCollection: React.FC = () => {
 
     return (
         <div>
-            <h1>Моя колекція покемонів</h1>
+            <h1>My Pokemon Collection</h1>
             {collection.length > 0 ? (
                 <div className="pokemon-grid">
                     {collection.map((pokemon) => (
@@ -29,7 +29,7 @@ const MyCollection: React.FC = () => {
                     ))}
                 </div>
             ) : (
-                <p>Ваша колекція порожня.</p>
+                <p>Your collection is empty.</p>
             )}
         </div>
     );
