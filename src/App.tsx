@@ -1,16 +1,19 @@
-// src/App.tsx
+
 
 import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import PokemonList from './pages/PokemonList';
 import PokemonDetail from './pages/PokemonDetail';
 import MyCollection from './pages/MyCollection';
 import SearchResults from './pages/SearchResults';
-
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Header from './components/Header';
+import Footer from './components/Footer';
+import './App.css';
 
 function App() {
     return (
         <Router>
+            <Header />
             <main>
                 <Routes>
                     <Route path="/pokemons" element={<PokemonList />} />
@@ -19,8 +22,9 @@ function App() {
                     <Route path="/search" element={<SearchResults />} />
                 </Routes>
             </main>
+            <Footer />
         </Router>
     );
 }
 
-export default App;  // Додайте цей рядок
+export default App;

@@ -3,16 +3,6 @@ export interface Pokemon {
     url: string;
 }
 
-export interface PokemonDetails {
-    abilities: Ability[];
-    stats: Stat[];
-    types: Type[];
-    sprites: {
-        front_default: string;
-    };
-    name: string;
-}
-
 interface Ability {
     ability: {
         name: string;
@@ -37,15 +27,17 @@ interface Form {
     url: string;
 }
 
-
-
-
-// src/store/types.ts
-
 export interface PokemonDetails {
     name: string;
     sprites: {
         front_default: string;
+        front_shiny?: string;
+        front_female?: string;
+        front_shiny_female?: string;
+        back_default?: string;
+        back_shiny?: string;
+        back_female?: string;
+        back_shiny_female?: string;
     };
     abilities: {
         ability: {

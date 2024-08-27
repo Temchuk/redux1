@@ -1,38 +1,47 @@
-// src/components/Header.tsx
 
 import React, { useState } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import './Header.css';
 
 const Header: React.FC = () => {
     const [searchTerm, setSearchTerm] = useState('');
     const [searchType, setSearchType] = useState<'name' | 'type' | 'ability'>('name');
-    const history = useHistory();
+    const navigate = useNavigate();
 
     const handleSearch = () => {
         if (searchTerm.trim()) {
-            history.push(`/search?term=${searchTerm}&type=${searchType}`);
+            navigate(`/search?term=${searchTerm}&type=${searchType}`);
         }
     };
 
     return (
-        <header>
+        <header className="header">
             <nav>
-                <Link to="/pokemons">Покемони</Link>
-                <Link to="/my-collection">Моя колекція</Link>
+                <Link className="link" to="/pokemons">Pokemons</Link>
+                <Link className="link" to="/my-collection">My Collection</Link>
             </nav>
-            <div className="search-bar">
+            <div >
                 <select value={searchType} onChange={(e) => setSearchType(e.target.value as 'name' | 'type' | 'ability')}>
-                    <option value="name">Назва</option>
-                    <option value="type">Тип</option>
-                    <option value="ability">Здатність</option>
+                    <option value="name">Name</option>
+                    <option value="type">Type</option>
+                    <option value="ability">Ability</option>
                 </select>
                 <input
                     type="text"
-                    placeholder={`Пошук за ${searchType}`}
+                    placeholder={`Search by ${searchType}`}
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
                 />
-                <button onClick={handleSearch}>Пошук</button>
+                <button
+                    style={{
+                        backgroundColor: '#0070f3',
+                        color: 'white',
+                        height: '25px',
+                        width: '60px',
+                        borderRadius: '5px',
+                        marginLeft: '5px',
+                    }}
+                    onClick={handleSearch}>Search</button>
             </div>
         </header>
     );

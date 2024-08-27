@@ -1,12 +1,14 @@
+
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { AppDispatch, RootState } from '../store/store';
 import { fetchPokemons } from '../store/actions';
 import { Pokemon } from '../store/types';
 import { Link } from 'react-router-dom';
+import './PokemonList.css';  // Імпорт CSS стилів
 
 const PokemonList: React.FC = () => {
-    const [currentPage, setCurrentPage] = useState(1); // Додаємо стан для поточної сторінки
+    const [currentPage, setCurrentPage] = useState(1);
     const dispatch: AppDispatch = useDispatch();
 
     const { pokemons, loading, error } = useSelector(
@@ -14,7 +16,7 @@ const PokemonList: React.FC = () => {
     );
 
     useEffect(() => {
-        dispatch(fetchPokemons(currentPage)); // Викликаємо fetchPokemons з поточною сторінкою
+        dispatch(fetchPokemons(currentPage));
     }, [dispatch, currentPage]);
 
     const handleNextPage = () => {
@@ -41,7 +43,7 @@ const PokemonList: React.FC = () => {
                                 src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.url.split('/')[6]}.png`}
                                 alt={pokemon.name}
                             />
-                            <p>{pokemon.name}</p>
+                            <p style={{color: '#20bcc6', textDecoration: 'none'}}>{pokemon.name}</p>
                         </div>
                     </Link>
                 ))}
